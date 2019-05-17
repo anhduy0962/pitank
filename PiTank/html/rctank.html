@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel=stylesheet type="text/css" href="style.css">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="/webiopi.js"></script>
+<script type="text/javascript" src="console.js"></script>
+<meta charset="UTF-8">
+<title>Tank Controller</title>
+</head>
+<body>
+<div align="center">
+    <table>
+        <tbody>
+          <tr class="table-txt">
+              <td colspan="5">Tank Controller</div></td>
+          </tr>
+          <tr>
+              <td class="table-img" colspan="5"><div class="example"><img src="http://192.168.11.40:8080/?action=stream" /></div></td>
+          </tr>
+          <tr class="table-txt">
+              <td colspan="2">L-Morter</td>
+              <td></td>
+              <td colspan="2">R-Morter</td>
+          </tr>
+          <tr>
+              <td colspan="2" id="L-Morter" class="moter_number"><p></td>
+                <td></td>
+              <td colspan="2" id="R-Morter" class="moter_number"><p></td>
+            </tr>
+            <tr>
+                <td colspan="2" id="LM-Ratio" class="moter_number"><p></td>
+                  <td></td>
+                <td colspan="2" id="RM-Ratio" class="moter_number"><p></td>
+              </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>
+                  <form><input id="button_F" type="button" class="square_btn" value="▲">
+                </form></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+              <td>
+                <form><input id="button_LL" type="button" class="square_btn_narrow" value="<<">
+              </form></td>
+              <td>
+                <form><input id="button_L" type="button" class="square_btn" value="<">
+              </form></td>
+              <td>
+                <form><input id="button_STOP" type="button" class="square_btn" value="STOP">
+              </form></td>
+              <td>
+                <form><input id="button_R" type="button" class="square_btn" value=">">
+              </form></td>
+              <td>
+                <form><input id="button_RR" type="button" class="square_btn_narrow" value=">>">
+              </form></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>
+                  <form><input id="button_B" type="button" class="square_btn" value="▼">
+                </form></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+            <td colspan="5"> </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<script src="/webiopi.js"></script>
+<script>
+    function init() {
+    }
+    function stop() {
+        webiopi().callMacro("stop");
+    }
+    function forward() {
+        webiopi().callMacro("forward");
+    }
+    function reverse() {
+        webiopi().callMacro("reverse");
+    }
+    function turnLeft() {
+        webiopi().callMacro("turnLeft");
+    }
+    function turnRight() {
+        webiopi().callMacro("turnRight");
+    }
+    webiopi().ready(init);
+</script>
+
+<script src="https://use.fontawesome.com/6497e53239.js"></script>
+
+<body>
+
+    <div id="controller">
+        <center>
+		<p>
+                	<i class="fa fa-fw fa-5x" aria-hidden="true"></i>
+                <i class="fa fa-arrow-circle-o-up fa-fw fa-5x" aria-hidden="true" ontouchstart="forward()" ontouchend="stop()"
+                    onmousedown="forward()" onmouseup="stop()"></i>
+                <i class="fa fa-fw fa-5x" aria-hidden="true"></i>
+		</p>
+	        <p>
+                <i class="fa fa-arrow-circle-o-left fa-fw fa-5x" aria-hidden="true" ontouchstart="turnLeft()"
+                    ontouchend="stop()" onmousedown="turnLeft()" onmouseup="stop()"></i>
+                <i class="fa fa-stop-circle-o fa-fw fa-5x" aria-hidden="true" ontouchstart="stop()" onmousedown="stop()"></i>
+                <i class="fa fa-arrow-circle-o-right fa-fw fa-5x" aria-hidden="true" ontouchstart="turnRight()"
+                    ontouchend="stop()" onmousedown="turnRight()" onmouseup="stop()"></i>
+            </p>
+            <p>
+                <i class="fa fa-fw fa-5x" aria-hidden="true"></i>
+                <i class="fa fa-arrow-circle-o-down fa-fw fa-5x" aria-hidden="true" ontouchstart="reverse()" ontouchend="stop()"
+                    onmousedown="reverse()" onmouseup="stop()"></i>
+                <i class="fa fa-fw fa-5x" aria-hidden="true"></i>
+            </p>
+        </center>
+    </div>
+</body>
+

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+PORT="8080"
+SIZE="640x480"
+
+FRAMERATE="20"
+./mjpg_streamer \
+    -i "input_raspicam.so -f $FRAMERATE -r $SIZE " \
+    -o "output_http.so -w ./www -p $PORT"

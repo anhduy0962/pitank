@@ -1,0 +1,112 @@
+import webiopi
+import pigpio
+
+GPIO = webiopi.GPIO
+pi = pigpio.pi()
+
+FREQ = 50
+RANGE = 100
+DUTY = 50
+
+leftMotorDrivePWM1 = 11
+leftMotorDrivePWM2 = 9
+rightMotorDrivePWM1 = 23
+rightMotorDrivePWM2 = 22
+
+def setup():
+    webiopi.debug("setup")
+    pi.set_mode(leftMotorDrivePWM1, pigpio.OUTPUT)  
+    pi.set_mode(leftMotorDrivePWM2, pigpio.OUTPUT)  
+    pi.set_mode(rightMotorDrivePWM1, pigpio.OUTPUT)  
+    pi.set_mode(rightMotorDrivePWM2, pigpio.OUTPUT)  
+    
+    pi.set_PWM_frequency(leftMotorDrivePWM1, FREQ)
+    pi.set_PWM_frequency(leftMotorDrivePWM2, FREQ)
+    pi.set_PWM_frequency(rightMotorDrivePWM1, FREQ)
+    pi.set_PWM_frequency(rightMotorDrivePWM2, FREQ)
+
+
+    pi.set_PWM_range(leftMotorDrivePWM1, RANGE).
+    pi.set_PWM_range(leftMotorDrivePWM2, RANGE)
+    pi.set_PWM_range(rightMotorDrivePWM1, RANGE)
+    pi.set_PWM_range(rightMotorDrivePWM2, RANGE)
+
+    
+'''
+    GPIO.setFunction(leftMotorDrivePWM1, GPIO.PWM)
+    GPIO.setFunction(leftMotorDrivePWM2, GPIO.PWM)
+    GPIO.setFunction(rightMotorDrivePWM1, GPIO.PWM)
+    GPIO.setFunction(rightMotorDrivePWM2, GPIO.PWM)
+'''
+
+@webiopi.macro
+def forward():
+    webiopi.debug("forward")
+
+'''
+    GPIO.pwmWrite(leftMotorDrivePWM1, GPIO.LOW)
+    GPIO.pwmWrite(leftMotorDrivePWM2, GPIO.HIGH)
+    GPIO.pwmWrite(rightMotorDrivePWM1, GPIO.LOW)
+    GPIO.pwmWrite(rightMotorDrivePWM2, GPIO.HIGH)
+'''
+    pi.set_PWM_dutycycle(leftMotorDrivePWM1, 0)
+    pi.set_PWM_dutycycle(leftMotorDrivePWM2, DUTY)
+    pi.set_PWM_dutycycle(rightMotorDrivePWM1, 0)
+    pi.set_PWM_dutycycle(rightMotorDrivePWM2, DUTY)
+
+@webiopi.macro
+def reverse():
+    webiopi.debug("reverse")
+'''
+    GPIO.pwmWrite(leftMotorDrivePWM1, GPIO.HIGH)
+    GPIO.pwmWrite(leftMotorDrivePWM2, GPIO.LOW)
+    GPIO.pwmWrite(rightMotorDrivePWM1, GPIO.HIGH)
+    GPIO.pwmWrite(rightMotorDrivePWM2, GPIO.LOW)
+'''
+    pi.set_PWM_dutycycle(leftMotorDrivePWM1, DUTY)
+    pi.set_PWM_dutycycle(leftMotorDrivePWM2, 0)
+    pi.set_PWM_dutycycle(rightMotorDrivePWM1, DUTY)
+    pi.set_PWM_dutycycle(rightMotorDrivePWM2, 0)
+
+@webiopi.macro
+def turnLeft():
+    webiopi.debug("turnLeft")
+'''
+    GPIO.pwmWrite(leftMotorDrivePWM1, GPIO.HIGH)
+    GPIO.pwmWrite(leftMotorDrivePWM2, GPIO.LOW)
+    GPIO.pwmWrite(rightMotorDrivePWM1, GPIO.LOW)
+    GPIO.pwmWrite(rightMotorDrivePWM2, GPIO.HIGH)
+'''
+    pi.set_PWM_dutycycle(leftMotorDrivePWM1, DUTY)
+    pi.set_PWM_dutycycle(leftMotorDrivePWM2, 0)
+    pi.set_PWM_dutycycle(rightMotorDrivePWM1, 0)
+    pi.set_PWM_dutycycle(rightMotorDrivePWM2, DUTY)
+
+@webiopi.macro
+def turnRight():
+    webiopi.debug("turnRight")
+'''
+    GPIO.pwmWrite(leftMotorDrivePWM1, GPIO.LOW)
+    GPIO.pwmWrite(leftMotorDrivePWM2, GPIO.HIGH)
+    GPIO.pwmWrite(rightMotorDrivePWM1, GPIO.HIGH)
+    GPIO.pwmWrite(rightMotorDrivePWM2, GPIO.LOW)
+'''
+    pi.set_PWM_dutycycle(leftMotorDrivePWM1, 0)
+    pi.set_PWM_dutycycle(leftMotorDrivePWM2, DUTY)
+    pi.set_PWM_dutycycle(rightMotorDrivePWM1, DUTY)
+    pi.set_PWM_dutycycle(rightMotorDrivePWM2, 0)
+
+@webiopi.macro
+def stop():
+    webiopi.debug("stop")
+'''
+    GPIO.pwmWrite(leftMotorDrivePWM1, GPIO.LOW)
+    GPIO.pwmWrite(leftMotorDrivePWM2, GPIO.LOW)
+    GPIO.pwmWrite(rightMotorDrivePWM1, GPIO.LOW)
+    GPIO.pwmWrite(rightMotorDrivePWM2, GPIO.LOW)
+'''
+    pi.set_PWM_dutycycle(leftMotorDrivePWM1, 0)
+    pi.set_PWM_dutycycle(leftMotorDrivePWM2, 0)
+    pi.set_PWM_dutycycle(rightMotorDrivePWM1, 0)
+    pi.set_PWM_dutycycle(rightMotorDrivePWM2, 0)
+
